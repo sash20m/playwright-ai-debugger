@@ -1,0 +1,10 @@
+Usage: ai-debugger [options] <file...>
+
+Arguments:
+  file                  File with Playwright logs
+
+Options:
+  --color               Force color.
+  --no-color            Do not use color.
+  -V, --version         output the version number
+  -h, --help            display help for command

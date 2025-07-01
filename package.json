@@ -1,0 +1,37 @@
+{
+  "name": "checkly-ai-playwright-debugger",
+  "version": "1.0.0",
+  "description": "CLI tool to debug Playwright tests at scale with LLMs",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "type": "module",
+  "repository": "https://github.com/sash20m/checkly-ai-playwright-debugger",
+  "author": "Alex Matei",
+  "files": [
+    "dist/**/*",
+    "!dist/**/*.test.js"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_NO_WARNINGS=1 node --loader ts-node/esm ./src/index.ts",
+    "clean": "rimraf ./dist/ ./exec/",
+    "build": "yarn clean && tsc",
+    "test": "ava --verbose",
+    "bundle": "pkg . --out-dir ./exec/",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.8",
+    "jest": "^30.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "pkg": "^5.8.1",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "commander": "^14.0.0"
+  }
+}
