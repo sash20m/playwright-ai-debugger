@@ -1,4 +1,46 @@
-.idea
-node_modules
-exec
-src
+# Source files
+src/
+*.ts
+!*.d.ts
+
+# Build artifacts
+tsconfig.json
+jest.config.js
+
+# Development files
+.idea/
+.vscode/
+.DS_Store
+*.log
+
+# Test files
+**/__tests__/
+**/*.test.js
+**/*.test.js.map
+**/*.test.d.ts
+**/fixtures/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Package managers
+node_modules/
+yarn.lock
+package-lock.json
+
+# Executables
+exec/
+
+# Debug reports
+debug-reports/
+
+# Test traces
+*.zip
+traces/
+
+# Git
+.git/
+.gitignore
+.gitattributes

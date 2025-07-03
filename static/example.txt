@@ -1,3 +1,34 @@
 Example Output:
+╭──────────────────────────────────────────────────── Result 1 ─────────────────────────────────────────────────────╮
+│                                                                                                                   │
+│   ID:  1                                                                                                          │
+│   Project:  script-visit-page-and-take-screenshot-chromiumBVnBlV                                                  │
+│   File: /check/6c03eac4-9e6e-4f0c-83fc-6a9d999cac6d/script.js                                                     │
+│   Location: line 24, col 74                                                                                       │
+│   Description: The test failed because an expected status code was not met. The test expected a status code       │
+│   less than 200, but received a status code of 200.                                                               │
+│   Impact: This failure indicates that the API being tested did not respond with the expected status code, which   │
+│   could lead to issues in proper application flow and user experience if APIs are assumed to function other       │
+│   than they do.                                                                                                   │
+│   Fix: Review the API to ensure it is returning the correct status code. Additionally, update the test to         │
+│   reflect the expected behavior (or correct the specification) if a 200 status code is indeed valid under         │
+│   normal circumstances.                                                                                           │
+│   Causal Chain: API call → response with status code 200 → test expectation compares to 200 → test fails          │
+│                                                                                                                   │
+│                                                                                                                   │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[17:54:17.215Z] INFO: 📄 Web report written to file://Users/sash20m/Desktop/software/checkly-playwright-debugger/debug-reports/debug-report-1752083657214.html
+
+✔ Menu: [AI Interactive Agent = 1] [Exit = 2] · 1
+
+Choose one of the debugging reports to interact with (eg. 3): · 1
+✔ Question: · When did the fail occur ?
+💡 The failure occurred during the execution of the test when it reached the assertion that expected a response with a status code less than 200. The specific error message was logged at the point where the test was checking this condition. According to the trace files, it was noted in the `testTrace` file, particularly during the call to `expect`:
+
+- The error was captured as occurring right after the call at `script.js` on **line 24, column 74**.
+- This was during the test's validation logic that checked the expected condition against the actual response received (status code 200).
+
+Overall, the failure occurred immediately after the HTTP response was received and before the test could log its conclusion, indicating a mismatch between the expected and actual conditions.
+
+? Menu: [Ask follow-up question = 1] [Ask another question = 2] [Exit = 3] ›
 ...
-done.

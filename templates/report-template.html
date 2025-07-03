@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debug Report</title>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: #0d47a1;
+    }
+    .field {
+      margin: 0.5rem 0;
+    }
+    .label {
+      font-weight: 600;
+      color: #555;
+    }
+    .value {
+      display: block;
+      margin-top: 0.2rem;
+    }
+    code {
+      background-color: #eee;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="report-container"></div>
+  <script>
+    window.__DEBUG_RESULTS__ = [];
+
+    const results = window.__DEBUG_RESULTS__;
+    const container = document.getElementById('report-container');
+    results.forEach((r, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h2>Result ${i + 1}</h2>
+        <div class="field"><span class="label">Project:</span> <span class="value"><code>${r.folder}</code></span></div>
+        <div class="field"><span class="label">File:</span> <span class="value">${r.filePath}</span></div>
+        <div class="field"><span class="label">Location:</span> <span class="value">Line ${r.line}, Col ${r.column}</span></div>
+        <div class="field"><span class="label">Description:</span> <div class="value">${r.description}</div></div>
+        <div class="field"><span class="label">Impact:</span> <div class="value">${r.issueImpact}</div></div>
+        <div class="field"><span class="label">Fix:</span> <div class="value">${r.recommendedFix}</div></div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>

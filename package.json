@@ -3,35 +3,88 @@
   "version": "1.0.0",
   "description": "CLI tool to debug Playwright tests at scale with LLMs",
   "main": "dist/index.js",
-  "bin": "dist/index.js",
-  "type": "module",
-  "repository": "https://github.com/sash20m/checkly-ai-playwright-debugger",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ai-debugger": "dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sash20m/checkly-ai-playwright-debugger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sash20m/checkly-ai-playwright-debugger/issues"
+  },
+  "homepage": "https://github.com/sash20m/checkly-ai-playwright-debugger#readme",
+  "keywords": [
+    "playwright",
+    "testing",
+    "debugging",
+    "ai",
+    "llm",
+    "cli",
+    "trace-analysis",
+    "test-automation"
+  ],
   "author": "Alex Matei",
+  "license": "MIT",
   "files": [
     "dist/**/*",
-    "!dist/**/*.test.js"
+    "templates/**/*",
+    "static/**/*",
+    "!dist/**/*.test.js",
+    "!dist/**/*.test.js.map",
+    "!dist/**/*.test.d.ts",
+    "!dist/**/__tests__",
+    "README.md",
+    "LICENSE"
   ],
-  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
-    "start": "NODE_NO_WARNINGS=1 node --loader ts-node/esm ./src/index.ts",
-    "clean": "rimraf ./dist/ ./exec/",
-    "build": "yarn clean && tsc",
-    "test": "ava --verbose",
+    "start": "NODE_NO_WARNINGS=1 node ./dist/index.js",
+    "dev": "ts-node --project tsconfig.json src/index.ts",
+    "clean": "rimraf ./dist/ ./exec/ ./traces/",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "npx jest ./src",
     "bundle": "pkg . --out-dir ./exec/",
     "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write ."
+    "prettier:write": "prettier --write .",
+    "prepublishOnly": "npm run build && npm run test"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/fs-extra": "^11.0.4",
     "@types/jest": "^30.0.0",
+    "@types/json-schema": "^7.0.15",
     "@types/node": "^24.0.8",
+    "@types/tar": "^6.1.8",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "^2.32.0",
     "jest": "^30.0.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
     "pkg": "^5.8.1",
     "prettier": "^3.6.2",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "commander": "^14.0.0"
+    "@ai-sdk/anthropic": "^2.0.23",
+    "@ai-sdk/openai": "^2.0.42",
+    "adm-zip": "^0.5.16",
+    "ai": "^5.0.60",
+    "boxen": "5.1.2",
+    "chalk": "4.1.2",
+    "commander": "^14.0.0",
+    "enquirer": "^2.4.1",
+    "fs-extra": "^11.3.0",
+    "ora": "5.4.1",
+    "tar": "^7.4.3",
+    "winston": "^3.17.0",
+    "zod": "^4.1.11"
   }
 }

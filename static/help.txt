@@ -1,10 +1,7 @@
-Usage: ai-debugger [options] <file...>
+Usage: ai-debugger [options] <zipFiles...>
 
 Arguments:
-  file                  File with Playwright logs
+  zipFiles              ZipFiles with the trace logs from Playwright
 
 Options:
-  --color               Force color.
-  --no-color            Do not use color.
-  -V, --version         output the version number
-  -h, --help            display help for command
+  --api-key             OpenAI API Key
