@@ -1,20 +1,20 @@
 {
-  "name": "checkly-ai-playwright-debugger",
+  "name": "playwright-ai-debugger",
   "version": "1.0.0",
   "description": "CLI tool to debug Playwright tests at scale with LLMs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "ai-debugger": "dist/index.js"
+    "pw-ai-debugger": "dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sash20m/checkly-ai-playwright-debugger.git"
+    "url": "https://github.com/sash20m/playwright-ai-debugger.git"
   },
   "bugs": {
-    "url": "https://github.com/sash20m/checkly-ai-playwright-debugger/issues"
+    "url": "https://github.com/sash20m/playwright-ai-debugger/issues"
   },
-  "homepage": "https://github.com/sash20m/checkly-ai-playwright-debugger#readme",
+  "homepage": "https://github.com/sash20m/playwright-ai-debugger#readme",
   "keywords": [
     "playwright",
     "testing",
