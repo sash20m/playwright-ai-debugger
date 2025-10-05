@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "pw-ai-debugger": "dist/index.js"
+    "playwright-ai-debugger": "dist/index.js"
   },
   "repository": {
     "type": "git",
